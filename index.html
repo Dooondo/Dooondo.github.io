@@ -3,10 +3,48 @@
 <head>
     <title>Page Title</title>
 </head>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        $("#btn").click(function () {
+            var start = $("#start").val();
+            var finish = $("#finish").val();
+            var money = $("#money").val();
+
+            var starts = start.split(':');
+            var finishs = finish.split(':');
+
+            var sum = ((finishs[0] * 60 + parseInt(finishs[1])) - (starts[0] * 60 + parseInt((starts[1]))));
+            sum *= (money / 60);
+
+            alert(sum);
+
+            //alert(sum);
+            
+        });
+    });
+</script>
 <body>
+    <form>
+        <div>
+            <label style="margin-right: 61px">Начало</label>
+            <input type="datetime" id="start" placeholder="13:22" />
+        </div>
 
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
+        <div style="margin-top: 20px">
+            <label style="margin-right: 68px">Конец</label>
+            <input type="datetime" id="finish" placeholder="17:38" />
+        </div>
 
+        <div style="margin-top: 20px">
+            <label style="margin-right: 25px">Ставка в час</label>
+            <input type="datetime" id="money" placeholder="100" />
+        </div>
+
+        <div style="margin-top: 20px">
+            <input type="button" id="btn" value="Рассчитать" />
+        </div>
+    </form>
 </body>
 </html>
